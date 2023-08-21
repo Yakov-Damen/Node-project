@@ -1,4 +1,16 @@
-import * as productService from '../services/productService.js'
+import * as productService from '../services/productService.js';
+import { getProductsFromAPI, saveProducts} from '../productDal/productDal.js';
+import { addQuantity } from '../services/productService.js';
+
+export async function getDataFromAPI() {
+    try {
+    const res = await getProductsFromAPI();
+    const finelRes = addQuantity(res.data);
+    return await saveProducts(finelRes);
+    } catch (err) {
+        console.log(`Error while getting data from API: ${err.message}`);
+    }
+}
 
 export const getAllProducts = async (req, res) => {
     try {

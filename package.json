@@ -12,9 +12,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.4.0",
     "express": "^4.18.2",
     "jsonfile": "^6.1.0",
     "morgan": "^1.10.0"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "./db/data.json"
+    ]
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
