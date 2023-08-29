@@ -31,10 +31,10 @@ export const addProduct = async (product) => {
 export async function updateProduct(id, product) {
     const products = await getAllProducts();
     for (let i = 0; i < products.length; i++) {
-        if (products[i].id === id) {
+        if (+products[i].id === id) {
             products[i] = product;
             productDal.saveProducts(products);
-            return products;
+            return products[i];
         }
     }
 }

@@ -35,7 +35,7 @@ export const addProduct = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
     try {
-    res.send(await productService.updateProduct(+req.params.id, req.body));
+    res.json(await productService.updateProduct(+req.params.id, req.body));
     } catch (error) {
         res.status(500).send(error);
     }}
